@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[1035],dp[1005][3],n,k;
+int ok(int ak,int bk)
+{
+    if (ak==n)return 0;
+    
+    if (dp[ak][bk]!=-1)return dp[ak][bk];
+    if (ak==n-1)
+    {
+        if (!bk)
+            return dp[ak][bk]=a[ak];
+        else return 0;
+    }
+    return dp[ak][bk]=max((ok(ak+2,(ak==0) || bk))+a[ak],ok(ak+1,bk));
+}
+  
+int main()
+{
+    int tc,r=0;
+    cin>>tc;
+    while(tc--)
+    {
+        cout<<"Case "<<++r<<": ";
+        int i,j,w,l,kk;
+        memset(dp,-1,sizeof dp);
+        cin>>n;
+        for(i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+        
+        
+        cout<<ok(0,0)<<endl;
+
+    }
+}
