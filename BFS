@@ -1,0 +1,19 @@
+void bfs(int x)
+{
+	queue<int>q;
+	q.push(x);
+	vis[x]=true;
+	while(q.size())
+	{
+		int f=q.front();
+		q.pop();
+		for(auto t:v[f])
+		{
+			if (vis[t]==false)
+			{
+				q.push(t);
+				vis[t]=true;
+			}
+		}
+	}
+}
